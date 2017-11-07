@@ -3,8 +3,8 @@ chrome.storage.local.get(null, function(data) {
         // That's kind of bad
     } else {
         output(data);
-        //str = JSON.stringify(data)
-        //document.getElementById("result").innerText = str;
+        // str = JSON.stringify(data)
+        // cosnole.log(str)
     }
 });
 

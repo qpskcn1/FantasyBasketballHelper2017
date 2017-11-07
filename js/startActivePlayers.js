@@ -1,4 +1,4 @@
-var days = 7;
+var days = 2;
 var result = [];
 var url = window.location.href;
 var url_re = /https:\/\/basketball.fantasysports.yahoo.com\/nba\/\d+\/\d+/;
@@ -11,8 +11,6 @@ if (url.match(url_re)){
         newButton.text("Start Active Players for Next 7 Days");
         $(newButton).insertAfter(button);
         $(newButton).click(function() {
-            // Clear result
-            result = []
             // Clear local storage
             chrome.storage.local.clear(function() {
                 var error = chrome.runtime.lastError;
@@ -20,7 +18,11 @@ if (url.match(url_re)){
                     console.error(error);
                 }
             });
-            execute(button.attr("href"));
+            // var now = new Date();
+            // chrome.storage.local.set({'time': now}, function() {
+            //     console.log('Action time: %s', now);
+            // });      
+            execute(button.attr("href"));      
             console.log(result);
         });
     }
@@ -55,15 +57,6 @@ function validation(wnd, close = true) {
         // Remove empty strings
         altPlayers = altPlayers.filter(v=>v!="");
         date = wnd.document.getElementsByClassName("flyout-title")[0].textContent;
-        result.push({
-            key: date,
-            value: altPlayers
-        });
-        // if (altPlayers.length != 0) {
-        //  wnd.alert("Alternate: " + altPlayers);
-        // } else {
-        //  wnd.close();
-        // }
         if (close) wnd.close();
         chrome.storage.local.set({[date]: [altPlayers, wnd.location.href]}, function() {
             console.log(wnd.location.href)
