@@ -4,25 +4,43 @@ chrome.storage.local.get(null, function(data) {
     } else {
         output(data);
         //str = JSON.stringify(data)
-		//document.getElementById("result").innerText = str;
+        //document.getElementById("result").innerText = str;
     }
 });
 
 
 function output(data) {
-	var now = new Date();
-	$('#result').append($('<p> Last Action: '+ now + '</p>'));
-	$.each(data, function(date, value) {
-		date = date.replace(/\s+/g, '');
-		resultStr = date + ": "
-		if (value[0].length != 0) {
-			resultStr += "- Alternate " + value[0];
-		} else {
-			resultStr += "Success!";
-		}
-		$('#result').append($('<br /><a href="' + value[1] + '">'+ resultStr + '</a>'));
-		resultStr += "</a>\n";
-	});
-	return resultStr;
+    var content = ''
+    $.each(data, function(date, value) {
+        date = date.replace(/\s+/g, '');
+        dateColumn = '<td><a href="' + value[1] + '">' + date +'</a></td>';
+        StatusColumn = ""
+        rowClass = 'active'
+        if (value[0].length != 0) {
+            StatusColumn = '<td>Alternate ' + value[0] + '</td>';
+            rowClass = "danger"
+        } else {
+            StatusColumn += '<td>Success!</td>';
+            rowClass = "success"
+        }
+        content += '<tr class=' + rowClass + '>' + dateColumn + StatusColumn + '</tr>';
+    });
+    $('tbody').append(content);
+    var now = new Date();
+    $('#time').append($('<p> Last Action: '+ now + '</p>'));
 }
 
+// Open link in a new tab
+$(document).ready(function(){
+    $('tr:gt(0)').on('click', function(){
+        chrome.tabs.create({url: $(this).find('a').attr('href')});
+        return false;
+    }).hover( function() {
+        $(this).toggleClass('hover');
+    });
+
+    $('a').on('click', function(){
+        chrome.tabs.create({url:$(this).attr('href')});
+        return false
+    });
+});

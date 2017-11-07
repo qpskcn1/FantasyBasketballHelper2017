@@ -7,41 +7,90 @@
 <html>
   <head>
     <title>Fantasy Basketball Helper</title>
-    <style type="text/css">
-      body {
-        margin: 10px;
-        white-space: nowrap;
-      }
-
-      h1 {
-        font-size: 15px;
-      }
-
-      #container {
-        align-items: center;
-        display: block;
-        justify-content: space-between;
-      }
-    </style>
-
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-    -->
     <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/popup.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <style>
+      body {font-size: 14px; }
+      .container {width: 400px;}
+      #time {font-size: 11px;}
+      tr.hover {cursor: pointer;}
+    </style>
   </head>
-
   <body>
-    <h1>Instruction</h1>
-    <div id="container">
-      <p>Go to Yahoo Fantasy Basketball My Team Page, </p>
-      <p>and click the button next to Start Active Players</p>
-      <p>Plase report bugs to <a href="mailto:yizheng0831@gmail.com">yizheng0831@gmail.com</a></p>
-      <h2>Result:</h2>
-      <span id="result"></span>
+    <div class="container">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="https://chrome.google.com/webstore/detail/fantasy-basketball-helper/agnifafbknpcmagdhongfcmbgdlckknn">Yahoo Fantasy Basketball helper</a>
+      </div>
+      <!-- <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active">
+            <a href="#">Link</a>
+          </li>
+          <li>
+            <a href="#">Link</a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="glyphicon glyphicon-thumbs-up"></i>
+            </a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#">Action</a>
+              </li>
+              <li>
+                <a href="#">Another action</a>
+              </li>
+              <li>
+                <a href="#">Something else here</a>
+              </li>
+              <li>
+                <a href="#">Separated link</a>
+              </li>
+              <li>
+                <a href="#">One more separated link</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div> -->
+    </nav>
+    
+    <section>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+<!--      <tr>
+            <td>1</td>
+            <td><a href="www.google.com">Click</a></td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td colspan="2">Larry the Bird</td>
+            <td>@twitter</td>
+          </tr> -->
+        </tbody>
+      </table>
+      <p id="time"></p>
+    </section>
     </div>
   </body>
 </html>

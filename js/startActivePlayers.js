@@ -1,4 +1,4 @@
-var days = 2;
+var days = 7;
 var result = [];
 var url = window.location.href;
 var url_re = /https:\/\/basketball.fantasysports.yahoo.com\/nba\/\d+\/\d+/;
@@ -71,21 +71,3 @@ function validation(wnd, close = true) {
         });
     });
 }
-
-// function dialog() {
-//  if (result.length != days) {
-//      alert("Oops, something wrong. Please try again later.");
-//  } else {
-//      var resultStr = "";
-//      $.each(result, function(key, value) {
-//          resultStr += key + ": ";
-//          if (value.length != 0) {
-//              resultStr += "- Alternate " + value;
-//          } else {
-//              resultStr += "Success!";
-//          }
-//      });
-//      resultStr += "\n";
-//      alert(resultStr);
-//  }
-// }
