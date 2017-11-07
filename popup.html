@@ -1,0 +1,44 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>Fantasy Basketball Helper</title>
+    <style type="text/css">
+      body {
+        margin: 10px;
+        white-space: nowrap;
+      }
+
+      h1 {
+        font-size: 15px;
+      }
+
+      #container {
+        align-items: center;
+        display: block;
+        justify-content: space-between;
+      }
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+    -->
+    <script src="js/popup.js"></script>
+  </head>
+
+  <body>
+    <h1>Instruction</h1>
+    <div id="container">
+      <p>Go to Yahoo Fantasy Basketball My Team Page, </p>
+      <p>and click the button next to Start Active Players</p>
+      <p>Plase report bugs to <a href="mailto:yizheng0831@gmail.com">yizheng0831@gmail.com</a></p>
+    </div>
+  </body>
+</html>
